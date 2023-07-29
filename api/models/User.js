@@ -14,6 +14,10 @@ module.exports = {
       description:"The email address for this user.",
       unique:true,
     },
+    phoneNumber:{
+      type:"string",
+      description:"The phone number for this user."
+    },
     password:{
       type:'string',
       description:"The password for this user.",
