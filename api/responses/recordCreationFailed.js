@@ -32,7 +32,9 @@ module.exports = function recordCreationFailed(optionalData) {
   var res = this.res;
 
   return res.status(500).json({
-    message: "Internal Server Error",
-    error: optionalData ? optionalData : "Record Creation failed due to a server side error",
+    error: "Internal Server Error",
+    message: optionalData
+      ? optionalData
+      : "Record Creation failed due to a server side error",
   });
 };
