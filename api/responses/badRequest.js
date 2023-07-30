@@ -29,5 +29,5 @@
 module.exports = function badRequest(optionalData) {
   var res = this.res;
 
-  return res.status(400).json({ error: optionalData ? optionalData : "Bad Request" });
+  return res.status(400).json({ error:"Bad Request", message: optionalData ? optionalData : "Something went wrong, check request body" });
 };
