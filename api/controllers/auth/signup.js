@@ -54,7 +54,9 @@ module.exports = {
     const { req, res } = this;
 
     if (password.length < 8) {
-      return res.badRequest("Password Length is less than 8 characters");
+      return res.badRequest({
+        message: "Password Length is less than 8 characters",
+      });
     }
 
     // Create User Account
@@ -63,7 +65,7 @@ module.exports = {
       lastName,
       emailAddress: emailAddress.toLowerCase(),
       password: await sails.helpers.passwords.hashPassword(password),
-      emailProofToken: await sails.helpers.strings.random("url-friendly"),
+      emailProofToken: await sails.helpers.strings.random ("url-friendly"),
       emailProofTokenExpiresAt:
         Date.now() + sails.config.custom.emailProofTokenTTL,
       tosIp: req.ip,
