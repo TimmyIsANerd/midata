@@ -80,5 +80,16 @@ module.exports = {
         "A JS timestamp (epoch ms) representing the moment when this user last logged in.",
       example: 1502844074211,
     },
+
+    subscriptionStatus:{
+      type:'string',
+      isIn:["free","paid"],
+      defaultsTo:"free"
+    },
+
+    subscriptions:{
+      collection:"subscription",
+      via:"user"
+    }
   },
 };
