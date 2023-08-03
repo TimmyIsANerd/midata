@@ -13,7 +13,7 @@ module.exports = {
       description: "The email address for this user.",
       unique: true,
     },
-    
+
     password: {
       type: "string",
       description: "The password for this user.",
@@ -46,6 +46,16 @@ module.exports = {
       description: "Whether this user is an admin or not",
       extendedDescription: "If true, this user can access the admin panel.",
       defaultsTo: false,
+    },
+
+    avatarURL: {
+      type: "string",
+      description: "Avatar IMG URL",
+    },
+
+    avatarPublicID: {
+      type: "string",
+      description: "",
     },
 
     emailProofToken: {
@@ -81,15 +91,15 @@ module.exports = {
       example: 1502844074211,
     },
 
-    subscriptionStatus:{
-      type:'string',
-      isIn:["free","paid"],
-      defaultsTo:"free"
+    subscriptionStatus: {
+      type: "string",
+      isIn: ["free", "paid"],
+      defaultsTo: "free",
     },
 
-    subscriptions:{
-      collection:"subscription",
-      via:"user"
-    }
+    subscriptions: {
+      collection: "subscription",
+      via: "user",
+    },
   },
 };
