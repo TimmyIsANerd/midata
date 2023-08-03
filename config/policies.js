@@ -8,15 +8,17 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
+const isAuth = require("../api/policies/isAuth.js");
+
 module.exports.policies = {
-
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
 
-  // '*': true,
-
+  "*": isAuth,
+  "auth/signup": true,
+  "auth/login": true,
 };
