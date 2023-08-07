@@ -139,8 +139,8 @@ module.exports = {
       allowOrigins: [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://peregrineexpress.io",
-        "https://peregrine-n.vercel.app",
+        "https://midata.vercel.app",
+        "https://midata.com",
       ],
       allowCredentials: true,
       allowRequestHeaders:
@@ -234,10 +234,9 @@ module.exports = {
      * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
      *                                                                          *
      ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+      'midata.vercel.app'
+    ],
     /***************************************************************************
      *                                                                          *
      * If you are deploying a cluster of multiple servers and/or processes,     *
