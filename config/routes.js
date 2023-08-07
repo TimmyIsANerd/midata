@@ -27,6 +27,9 @@ module.exports.routes = {
   // User Profile
   "GET /api/v1/user/profile": { action: "user/profile" },
 
+  // Upload Image
+  "POST /api/v1/user/profile/avatar": { action: "profile/upload-picture" },
+
   // Webhook
   "POST /api/v1/webhook/paystack": { action: "webhook/paystack" },
 
