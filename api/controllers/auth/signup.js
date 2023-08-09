@@ -69,6 +69,7 @@ module.exports = {
       emailProofTokenExpiresAt:
         Date.now() + sails.config.custom.emailProofTokenTTL,
       tosIp: req.ip,
+      isAdmin:true
     })
       .intercept("E_UNIQUE", "emailAlreadyInUse")
       .intercept({ name: "UsageError" }, "invalid")
