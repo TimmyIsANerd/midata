@@ -20,4 +20,6 @@ module.exports.custom = {
   emailConfirmation: false,
   passwordResetTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
   emailProofTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
+  baseUrl: "http://localhost:1337",
+  FEBaseURL: "https://midatatest.netlify.app/",
 };
