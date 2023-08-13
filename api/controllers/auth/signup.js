@@ -65,11 +65,11 @@ module.exports = {
       lastName,
       emailAddress: emailAddress.toLowerCase(),
       password: await sails.helpers.passwords.hashPassword(password),
-      emailProofToken: await sails.helpers.strings.random ("url-friendly"),
+      emailProofToken: await sails.helpers.strings.random("url-friendly"),
       emailProofTokenExpiresAt:
         Date.now() + sails.config.custom.emailProofTokenTTL,
       tosIp: req.ip,
-      isAdmin:true
+      isAdmin: true,
     })
       .intercept("E_UNIQUE", "emailAlreadyInUse")
       .intercept({ name: "UsageError" }, "invalid")
@@ -77,6 +77,24 @@ module.exports = {
 
     if (!newUser) {
       return res.serverError({ message: "Unable to create user" });
+    }
+
+    try {
+      const FEBaseURL = await sails.config.custom.FEBaseURL;
+
+      const emailBody = await sails.renderView("emails/verification/email", {
+        layout: false,
+        verificationLink: `${FEBaseURL}/email/verify/${newUser.emailProofToken}`,
+      });
+
+      await sails.helpers.sendEmail(
+        newUser.emailAddress,
+        "MiData | Email Verification",
+        emailBody
+      );
+
+    } catch (error) {
+      sails.log.error(error);
     }
 
     return res.status(201).json({
