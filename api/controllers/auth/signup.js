@@ -79,22 +79,23 @@ module.exports = {
       return res.serverError({ message: "Unable to create user" });
     }
 
-    try {
-      const FEBaseURL = await sails.config.custom.FEBaseURL;
+    if (sails.config.custom.emailConfirmation) {
+      try {
+        const FEBaseURL = await sails.config.custom.FEBaseURL;
 
-      const emailBody = await sails.renderView("emails/verification/email", {
-        layout: false,
-        verificationLink: `${FEBaseURL}/email/verify/${newUser.emailProofToken}`,
-      });
+        const emailBody = await sails.renderView("emails/verification/email", {
+          layout: false,
+          verificationLink: `${FEBaseURL}/email/verify/${newUser.emailProofToken}`,
+        });
 
-      await sails.helpers.sendEmail(
-        newUser.emailAddress,
-        "MiData | Email Verification",
-        emailBody
-      );
-
-    } catch (error) {
-      sails.log.error(error);
+        await sails.helpers.sendEmail(
+          newUser.emailAddress,
+          "MiData | Email Verification",
+          emailBody
+        );
+      } catch (error) {
+        sails.log.error(error);
+      }
     }
 
     return res.status(201).json({
