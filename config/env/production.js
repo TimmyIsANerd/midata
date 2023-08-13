@@ -234,9 +234,7 @@ module.exports = {
      * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
      *                                                                          *
      ***************************************************************************/
-    onlyAllowOrigins: [
-      'https://midata.vercel.app'
-    ],
+    onlyAllowOrigins: ["https://midata.vercel.app"],
     /***************************************************************************
      *                                                                          *
      * If you are deploying a cluster of multiple servers and/or processes,     *
@@ -342,11 +340,12 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   custom: {
-    baseUrl: "https://example.com",
+    baseUrl: "https://midata.cyclic.app",
     internalEmailAddress: "support@example.com",
     emailConfirmation: false,
     passwordResetTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
     emailProofTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
+    FEBaseURL: "https://midatatest.netlify.app",
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
