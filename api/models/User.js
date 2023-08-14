@@ -91,6 +91,32 @@ module.exports = {
       example: 1502844074211,
     },
 
+    nationality: {
+      type: "string",
+      description: "Nationality of User",
+    },
+
+    organizationDescription: {
+      type: "string",
+      description: "How user intends to use MiData",
+    },
+
+    productUseIntention: {
+      type: "string",
+      description: "Product use intention of registered user",
+    },
+
+    userType: {
+      type: "string",
+      isIn: [
+        "Non-Profit Organization",
+        "Commercial Organization",
+        "Independent Researcher",
+        "Student",
+      ],
+      description:"User Type"
+    },
+
     subscriptionStatus: {
       type: "string",
       isIn: ["free", "paid"],
